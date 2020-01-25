@@ -6,12 +6,12 @@ target 'Media' do
   use_frameworks!
 
   # Pods for Media
-
+  pod 'RxSwift', '~> 5'
+  pod 'RxCocoa', '~> 5'
+  pod 'Alamofire'
+  
   target 'MediaTests' do
     inherit! :search_paths
-    pod 'RxSwift', '~> 5'
-    pod 'RxCocoa', '~> 5'
-    pod 'Alamofire'
     # Pods for testing
   end
 

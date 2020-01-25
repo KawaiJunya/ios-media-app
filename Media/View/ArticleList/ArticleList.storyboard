@@ -29,6 +29,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oth-rf-776"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="jeK-Qb-J7B" id="7Al-A1-iFu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lsm-Dc-6wS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

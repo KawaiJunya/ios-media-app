@@ -7,13 +7,18 @@
 //
 
 import UIKit
+import RxSwift
 
 class ArticleListViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    private lazy var viewModel: ArticleListViewModel = ArticleListViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("article list")
         // Do any additional setup after loading the view.
+        viewModel.getArticleList()
     }
     
 
