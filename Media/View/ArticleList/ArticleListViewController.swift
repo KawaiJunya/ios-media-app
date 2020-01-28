@@ -8,28 +8,20 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 class ArticleListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     private lazy var viewModel: ArticleListViewModel = ArticleListViewModel()
     
+    private let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("article list")
-        // Do any additional setup after loading the view.
         viewModel.getArticleList()
+        viewModel.articleList.bind(to: tableView.rx.items(cellIdentifier: "Cell")) { row, model, cell in
+           cell.textLabel?.text = "\(model.title)"
+        }.disposed(by: disposeBag)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

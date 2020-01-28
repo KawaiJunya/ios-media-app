@@ -8,33 +8,27 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
 class ArticleListViewModel{
     
-    let articleRepository: ArticleListRepository
     private let disposeBag = DisposeBag()
-    
-    var articleList: [Article]
-    private let _articleList = BehaviorRelay<[Article]>(value: [])
-    
-    // Observables
-    let reloadData: Observable<Void>
+    let articleRepository: ArticleListRepository
+    let articleList = BehaviorRelay<[Article]>(value: [])
     
     init(){
         articleRepository = ArticleListRepository()
-        self.reloadData = _articleList.map { _ in }
     }
     
     func getArticleList(){
         self.articleRepository.getArticles()
             .subscribe(
                 onNext: { response in
-                    print(response)
+                    self.articleList.accept(response)
                 },
                 onError: { error in
                     print(error)
                 }
             ).disposed(by: disposeBag)
     }
-    
 }
