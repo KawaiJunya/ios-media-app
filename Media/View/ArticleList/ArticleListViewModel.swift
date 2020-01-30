@@ -11,14 +11,21 @@ import RxSwift
 import RxCocoa
 
 class ArticleListViewModel{
-    
+    private let articleRepository: ArticleListRepository
     private let disposeBag = DisposeBag()
-    private var page = 1
-    let articleRepository: ArticleListRepository
-    let articleList = BehaviorRelay<[Article]>(value: [])
+
     
+    var articles: [Article] { return _articles.value }
+
+    private let _articles = BehaviorRelay<[Article]>(value: [])
+
+    let reloadData: Observable<Void>
+
+    private var page = 1
+
     init(){
         articleRepository = ArticleListRepository()
+        self.reloadData = _articles.map { _ in }
     }
     
     func getArticleList(){
@@ -27,7 +34,7 @@ class ArticleListViewModel{
                 onNext: { response in
                     print(self.page)
                     self.page += 1
-                    self.articleList.accept(response)
+                    self._articles.accept(self.articles + response)
                 },
                 onError: { error in
                     print(error)

@@ -9,9 +9,10 @@
 import Foundation
 
 struct Article: Codable {
-    let title: String
-    let url:   String
-    let user:  User
+    let title:        String
+    let url:          String
+    let user:         User
+    let likes_count:  Int
 }
 
 struct User: Codable{

@@ -8,16 +8,18 @@
 
 import UIKit
 
-struct ArticleCell {
-    let title:  String
-    let author: String
-    let image:  String
-}
-
 class ArticleTableViewCell: UITableViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var author: UILabel!
     @IBOutlet weak var thumbnail: UIImageView!
+    
+    @IBOutlet weak var likes_count: UILabel!
+    func set(article: Article){
+        title.text       = article.title
+        author.text      = article.user.name
+        thumbnail.image  = UIImage(url: article.user.profile_image_url)
+        likes_count.text = String(article.likes_count)
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
