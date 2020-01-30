@@ -13,6 +13,7 @@ import RxCocoa
 class ArticleListViewModel{
     
     private let disposeBag = DisposeBag()
+    private var page = 1
     let articleRepository: ArticleListRepository
     let articleList = BehaviorRelay<[Article]>(value: [])
     
@@ -21,10 +22,11 @@ class ArticleListViewModel{
     }
     
     func getArticleList(){
-        self.articleRepository.getArticles()
+        self.articleRepository.getArticles(page: self.page)
             .subscribe(
                 onNext: { response in
-                    print(response)
+                    print(self.page)
+                    self.page += 1
                     self.articleList.accept(response)
                 },
                 onError: { error in

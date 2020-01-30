@@ -16,14 +16,17 @@ enum ResponseError: Error {
 }
 
 class ArticleListRepository {
-    func getArticles() -> Observable<[Article]> {
-        let headers:    HTTPHeaders   = ["Content-Type": "application/json"]
-        
+    func getArticles(page: Int) -> Observable<[Article]> {
+        let headers: HTTPHeaders = ["Content-Type": "application/json"]
+        let parameters:[String: Any] = [
+            "page":     page,
+            "per_page": 30
+        ]
         return Observable.create { observer in
             Alamofire.request(
                 PathValues.GET_ARTICLES,
                 method:     .get,
-                parameters: nil,
+                parameters: parameters,
                 encoding:   URLEncoding(destination: .queryString),
                 headers:    headers
             ).responseJSON { response in
@@ -33,7 +36,6 @@ class ArticleListRepository {
                     }
                     //Jsonをモデルにデコード
                     let result = try JSONDecoder().decode([Article].self, from: data)
-                    print(result)
                     observer.onNext(result)
                 } catch let error {
                     observer.onError(error)
