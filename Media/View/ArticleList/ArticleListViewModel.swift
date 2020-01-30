@@ -24,6 +24,7 @@ class ArticleListViewModel{
         self.articleRepository.getArticles()
             .subscribe(
                 onNext: { response in
+                    print(response)
                     self.articleList.accept(response)
                 },
                 onError: { error in

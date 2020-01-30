@@ -16,6 +16,7 @@
 		B3BAECED23DC7D18003D8554 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3BAECEB23DC7D18003D8554 /* LaunchScreen.storyboard */; };
 		B3BAECF823DC7D18003D8554 /* MediaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BAECF723DC7D18003D8554 /* MediaTests.swift */; };
 		B3BAED0323DC7D18003D8554 /* MediaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BAED0223DC7D18003D8554 /* MediaUITests.swift */; };
+		B3D432BE23E1E9D70096E2C8 /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D432BD23E1E9D70096E2C8 /* ArticleCell.swift */; };
 		B3E3804923DCA802009F630E /* ArticleList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3E3804823DCA802009F630E /* ArticleList.storyboard */; };
 		B3E3804B23DCA874009F630E /* ArticleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E3804A23DCA874009F630E /* ArticleListViewController.swift */; };
 		B3E3804D23DCA89C009F630E /* ArticleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E3804C23DCA89C009F630E /* ArticleListViewModel.swift */; };
@@ -62,6 +63,7 @@
 		B3BAECFE23DC7D18003D8554 /* MediaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MediaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3BAED0223DC7D18003D8554 /* MediaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaUITests.swift; sourceTree = "<group>"; };
 		B3BAED0423DC7D18003D8554 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3D432BD23E1E9D70096E2C8 /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
 		B3E3804823DCA802009F630E /* ArticleList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ArticleList.storyboard; sourceTree = "<group>"; };
 		B3E3804A23DCA874009F630E /* ArticleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewController.swift; sourceTree = "<group>"; };
 		B3E3804C23DCA89C009F630E /* ArticleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewModel.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				B3E3804A23DCA874009F630E /* ArticleListViewController.swift */,
 				B3E3804C23DCA89C009F630E /* ArticleListViewModel.swift */,
 				B3E3804E23DCA8AB009F630E /* ArticleModel.swift */,
+				B3D432BD23E1E9D70096E2C8 /* ArticleCell.swift */,
 			);
 			path = ArticleList;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3D432BE23E1E9D70096E2C8 /* ArticleCell.swift in Sources */,
 				B3E3804B23DCA874009F630E /* ArticleListViewController.swift in Sources */,
 				B3E3805623DCB15C009F630E /* PathValues.swift in Sources */,
 				B3BAECE123DC7D16003D8554 /* AppDelegate.swift in Sources */,

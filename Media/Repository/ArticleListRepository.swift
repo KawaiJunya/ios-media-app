@@ -33,6 +33,7 @@ class ArticleListRepository {
                     }
                     //Jsonをモデルにデコード
                     let result = try JSONDecoder().decode([Article].self, from: data)
+                    print(result)
                     observer.onNext(result)
                 } catch let error {
                     observer.onError(error)
