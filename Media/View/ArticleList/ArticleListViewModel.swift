@@ -14,13 +14,16 @@ class ArticleListViewModel{
     private let articleRepository: ArticleListRepository
     private let disposeBag = DisposeBag()
 
-    
+    // _articlesの中身
     var articles: [Article] { return _articles.value }
 
+    // データバインディング用のObservable
     private let _articles = BehaviorRelay<[Article]>(value: [])
 
+    // データ変更通知用のObservable
     let reloadData: Observable<Void>
 
+    // 現在のページ
     private var page = 1
 
     init(){
@@ -32,7 +35,6 @@ class ArticleListViewModel{
         self.articleRepository.getArticles(page: self.page)
             .subscribe(
                 onNext: { response in
-                    print(self.page)
                     self.page += 1
                     self._articles.accept(self.articles + response)
                 },
